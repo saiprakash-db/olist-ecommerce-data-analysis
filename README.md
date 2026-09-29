@@ -1,6 +1,6 @@
 # Olist E-Commerce Data Analysis
 
-End-to-end e-commerce data analysis project using MySQL, Databricks SQL, and GitHub.
+End-to-end e-commerce data analysis project using Databricks, SQL, Python and GitHub.
 
 ## Project Status
 
