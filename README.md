@@ -1,128 +1,189 @@
 # Olist E-Commerce Data Analysis
 
-## Project Overview
+An end-to-end e-commerce data analytics project using the Brazilian E-Commerce Public Dataset by Olist.
 
-An end-to-end e-commerce data analysis project built using the Brazilian E-Commerce Public Dataset by Olist.
+The project analyzes sales performance, customers, products, payments, sellers, delivery performance, reviews, and geographic trends using Databricks SQL and interactive dashboards.
 
-The project analyzes sales performance, product categories, payment methods, sellers, customer geography, delivery performance, and customer reviews using Databricks, SQL, Python, and GitHub.
+---
 
-## Business Problem
+## 📊 Dashboard
 
-The objective is to analyze e-commerce transaction data and identify meaningful business insights related to:
+![Olist E-Commerce Sales & Customer Analytics](dashboard/olist-ecommerce-dashboard.png)
 
-- Revenue and order performance
-- Monthly sales trends
+### Dashboard Highlights
+
+- Total Product Revenue: **R$13,591,643.70**
+- Average Order Value: **R$160.58**
+- Total Orders: **99,441**
+- Average Delivery Time: **12.5 days**
+- Average Review Score: **4.09 / 5**
+
+The dashboard provides an executive view of:
+
+- Sales performance
 - Product category performance
-- Payment method usage
-- Seller contribution
+- Payment methods
+- Seller performance
 - Customer geography
 - Delivery performance
-- Customer satisfaction and reviews
+- Customer review scores
+- Order status distribution
+- Product value vs freight value
 
-## Dataset
+---
 
-**Dataset:** Brazilian E-Commerce Public Dataset by Olist
+## 🎯 Business Objective
 
-The dataset contains approximately 100,000 orders from the Brazilian e-commerce marketplace Olist.
+The objective of this project is to analyze e-commerce transaction data and identify patterns in revenue, customer behavior, product performance, payment methods, delivery performance, and customer satisfaction.
 
-### Main Tables
+The analysis is designed from a business perspective to demonstrate how SQL and data visualization can be used to answer practical questions for an e-commerce company.
+
+---
+
+## ❓ Business Questions
+
+This project addresses questions such as:
+
+1. How much revenue does the business generate?
+2. How does revenue change over time?
+3. Which product categories generate the most revenue?
+4. What is the average order value?
+5. Which payment methods contribute the most payment value?
+6. Which sellers generate the highest product revenue?
+7. Which customer states generate the most revenue?
+8. How long does it take to deliver orders?
+9. Is delivery time associated with customer review scores?
+10. How are customer reviews distributed?
+11. How is revenue distributed across order statuses?
+12. How much of the total order value comes from products versus freight?
+
+---
+
+## 🛠️ Tools & Technologies
+
+- **Databricks Free Edition**
+- **Databricks SQL**
+- **SQL**
+- **Python**
+- **GitHub**
+- **Kaggle Dataset**
+- **AI/BI Dashboards**
+
+---
+
+## 📂 Dataset
+
+### Brazilian E-Commerce Public Dataset by Olist
+
+The dataset contains anonymized information from an online marketplace in Brazil.
+
+The project uses multiple related datasets including:
 
 - Customers
 - Orders
 - Order Items
-- Payments
-- Reviews
+- Order Payments
+- Order Reviews
 - Products
 - Sellers
 - Geolocation
 - Product Category Translation
 
-## Tools & Technologies
+### Dataset Coverage
 
-- **Databricks Free Edition** — Data ingestion, validation, SQL analysis, and dashboard
-- **SQL** — Data analysis and business insights
-- **Python** — Data inspection and analytical support
-- **GitHub** — Version control and project documentation
-- **Kaggle** — Dataset source
+Orders in the dataset span from **September 2016 to October 2018**.
 
-## Data Validation
+---
 
-The project includes validation checks for:
+## 🧹 Data Validation
 
-- Row counts
-- Null values
-- Duplicate primary keys
-- Foreign key relationships
-- Date consistency
-- Payment values
-- Product prices
-- Freight values
-- Review score validity
-- Product category translations
+The uploaded datasets were validated before analysis.
 
-Validation queries are available in:
+Validation included:
 
-`sql/01_data_validation.sql`
+- Primary key uniqueness checks
+- Foreign key consistency checks
+- Null-value checks
+- Order status validation
+- Date-range validation
+- Delivery-date validation
+- Payment value validation
+- Product price validation
+- Freight value validation
+- Review score validation
+- Product category translation matching
 
-## SQL Business Analysis
+The project uses validated/cleaned Olist tables for downstream SQL analysis.
 
-The analysis covers:
+---
 
-1. Overall sales performance
-2. Monthly revenue trends
-3. Product category performance
-4. Payment method performance
-5. Seller performance
-6. Customer geography
-7. Delivery time vs. review score
-8. Review score distribution
-9. Order status analysis
-10. Product value vs. freight value
+## 📈 Key Analysis
 
-Business analysis queries are available in:
+### Sales Performance
 
-`sql/02_business_analysis.sql`
+- Product revenue: **R$13.59M**
+- Average order value including freight: **R$160.58**
+- Total order items: **112,650**
 
-## Dashboard
+### Product Categories
 
-### Olist E-Commerce Sales & Customer Analytics
+Top revenue-generating categories include:
 
-The interactive Databricks dashboard provides an executive overview of:
+- Health & Beauty
+- Watches & Gifts
+- Bed, Bath & Table
+- Sports & Leisure
+- Computers & Accessories
 
-- Total Product Revenue
-- Average Order Value
-- Total Orders
-- Top Product Categories
-- Monthly Revenue Trends
-- Payment Methods
-- Top Sellers
-- Delivery Time vs. Review Score
-- Revenue by Customer State
-- Order Status Distribution
-- Review Score Distribution
-- Product Value vs. Freight Value
+### Payment Methods
 
-## Key Business Insights
+Payment value is analyzed across:
 
-- Total product revenue analyzed: **R$13.59M**
-- Total orders: **99,441**
-- Average Order Value including freight (orders with items): **R$160.58**
-- Average delivery time: **12.5 days**
-- Average valid review score: **4.09 / 5**
-- Health & Beauty generated the highest product revenue among categories.
-- São Paulo generated the highest customer-state revenue.
-- Credit card was the most frequently recorded payment method in the dataset.
-- Higher review scores were associated with shorter average delivery times.
+- Credit Card
+- Boleto
+- Voucher
+- Debit Card
+- Not Defined
 
-> Delivery time and review score are presented as an association in the analysis and should not be interpreted as proof of causation.
+Credit card transactions represent the largest payment value in the dataset.
 
-## Project Structure
+### Delivery & Customer Satisfaction
+
+Average delivery time for orders with a delivery date is approximately **12.5 days**.
+
+Average delivery time by valid review score:
+
+| Review Score | Average Delivery Time |
+|---:|---:|
+| 1 | 21.3 days |
+| 2 | 16.6 days |
+| 3 | 14.2 days |
+| 4 | 12.3 days |
+| 5 | 10.6 days |
+
+This analysis describes an association between delivery time and review score; it does not establish causation.
+
+### Customer Geography
+
+Customer revenue is analyzed across Brazilian states.
+
+São Paulo (SP) generates the highest product revenue among customer states in the dataset.
+
+### Seller Performance
+
+Seller-level analysis identifies the highest-revenue sellers and measures the contribution of the top sellers to total product revenue.
+
+---
+
+## 📊 Project Structure
 
 ```text
 olist-ecommerce-data-analysis/
 │
+├── dashboard/
+│   └── olist-ecommerce-dashboard.png
+│
 ├── docs/
-│   └── business_insights.md
 │
 ├── notebooks/
 │
