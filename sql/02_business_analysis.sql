@@ -4,6 +4,8 @@
 -- Purpose: Analyze sales performance, customers, products,
 --          sellers, payments, delivery, and reviews.
 -- ============================================================
+
+
 -- ============================================================
 -- 1. OVERALL SALES PERFORMANCE
 -- Purpose: Calculate total orders, product revenue,
@@ -21,6 +23,7 @@ SELECT
         2
     ) AS average_order_value_brl
 FROM workspace.default.olist_order_items_cleaned oi;
+
 
 -- ============================================================
 -- 2. MONTHLY REVENUE TREND
@@ -41,6 +44,7 @@ JOIN workspace.default.olist_order_items_cleaned oi
 WHERE DATE_FORMAT(o.order_purchase_timestamp, 'yyyy-MM') <> '2018-09'
 GROUP BY DATE_FORMAT(o.order_purchase_timestamp, 'yyyy-MM')
 ORDER BY order_month;
+
 
 -- ============================================================
 -- 3. PRODUCT CATEGORY PERFORMANCE
@@ -71,6 +75,7 @@ GROUP BY
     )
 ORDER BY product_revenue_brl DESC;
 
+
 -- ============================================================
 -- 4. PAYMENT METHOD PERFORMANCE
 -- Purpose: Compare payment methods by transaction count,
@@ -86,6 +91,7 @@ FROM workspace.default.olist_order_payments_cleaned
 GROUP BY payment_type
 ORDER BY total_payment_value_brl DESC;
 
+
 -- ============================================================
 -- 5. SELLER PERFORMANCE
 -- Purpose: Identify the top sellers by order volume
@@ -100,6 +106,7 @@ FROM workspace.default.olist_order_items_cleaned oi
 GROUP BY oi.seller_id
 ORDER BY product_revenue_brl DESC
 LIMIT 10;
+
 
 -- ============================================================
 -- 6. CUSTOMER GEOGRAPHY
@@ -118,6 +125,7 @@ JOIN workspace.default.olist_order_items_cleaned oi
     ON o.order_id = oi.order_id
 GROUP BY c.customer_state
 ORDER BY product_revenue_brl DESC;
+
 
 -- ============================================================
 -- 7. DELIVERY TIME VS REVIEW SCORE
@@ -146,6 +154,7 @@ WHERE r.review_score BETWEEN 1 AND 5
 GROUP BY r.review_score
 ORDER BY r.review_score;
 
+
 -- ============================================================
 -- 8. REVIEW SCORE DISTRIBUTION
 -- Purpose: Analyze the distribution of valid customer
@@ -165,6 +174,7 @@ WHERE review_score BETWEEN 1 AND 5
 GROUP BY review_score
 ORDER BY review_score;
 
+
 -- ============================================================
 -- 9. ORDER STATUS ANALYSIS
 -- Purpose: Analyze order volume and product revenue
@@ -180,6 +190,7 @@ LEFT JOIN workspace.default.olist_order_items_cleaned oi
     ON o.order_id = oi.order_id
 GROUP BY o.order_status
 ORDER BY total_orders DESC;
+
 
 -- ============================================================
 -- 10. PRODUCT VALUE VS FREIGHT VALUE
@@ -208,6 +219,7 @@ SELECT
         2
     ) AS percentage_of_total
 FROM workspace.default.olist_order_items_cleaned;
+
 
 -- ============================================================
 -- 11. TOTAL ORDERS
