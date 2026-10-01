@@ -210,12 +210,10 @@ SELECT
 FROM workspace.default.olist_order_items_cleaned;
 
 -- ============================================================
--- 11. TOTAL ORDERS EXCLUDING CREATED
--- Purpose: Calculate the number of orders excluding orders
---          that are still in the 'created' status.
+-- 11. TOTAL ORDERS
+-- Purpose: Calculate the total number of orders in the dataset.
 -- ============================================================
 
 SELECT
-    COUNT(*) AS total_orders_excluding_created
-FROM workspace.default.olist_orders_cleaned
-WHERE order_status <> 'created';
+    COUNT(*) AS total_orders
+FROM workspace.default.olist_orders_cleaned;
