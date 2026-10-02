@@ -1,24 +1,11 @@
-# Raw and cleaned datasets
-data/raw/
-data/cleaned/
-
-# Python
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-env/
-
-# Jupyter
-.ipynb_checkpoints/
-
-# VS Code
-.vscode/
+# Data files
+data/
+*.csv
+*.zip
 
 # OS files
 .DS_Store
 Thumbs.db
 
-# Temporary files
-*.tmp
+# Logs
 *.log
