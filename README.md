@@ -123,6 +123,7 @@ The project uses validated/cleaned Olist tables for downstream SQL analysis.
 
 - Product revenue: **R$13.59M**
 - Average order value including freight: **R$160.58**
+- Total orders: **99,441**
 - Total order items: **112,650**
 
 ### Product Categories
@@ -175,7 +176,75 @@ Seller-level analysis identifies the highest-revenue sellers and measures the co
 
 ---
 
-## 📊 Project Structure
+## 📊 Dashboard Analysis
+
+The Databricks AI/BI dashboard contains 12 visualizations:
+
+1. **Total Product Revenue**
+2. **Average Order Value**
+3. **Total Orders**
+4. **Top 10 Product Categories by Revenue**
+5. **Review Score Distribution**
+6. **Payment Methods by Total Value**
+7. **Monthly Product Revenue Trend**
+8. **Top 10 Sellers by Product Revenue**
+9. **Average Delivery Time by Review Score**
+10. **Revenue by Customer State**
+11. **Order Status Distribution**
+12. **Product Value vs Freight Value**
+
+The dashboard also includes interactive filters for:
+
+- Customer State
+- Payment Method
+
+---
+
+## 💡 Key Insights
+
+### Revenue
+
+The project recorded approximately **R$13.59 million in product revenue** across the analyzed order items.
+
+### Order Value
+
+The average order value including freight was approximately **R$160.58**.
+
+### Product Categories
+
+Health & Beauty generated the highest product revenue among the analyzed categories, followed by Watches & Gifts and Bed, Bath & Table.
+
+### Payments
+
+Credit cards accounted for the largest payment value among the available payment methods.
+
+### Delivery
+
+Orders with a delivery date had an average delivery time of approximately **12.5 days**.
+
+Lower review scores were associated with longer average delivery times in the analyzed data.
+
+### Customer Geography
+
+São Paulo generated the highest product revenue among customer states.
+
+### Seller Concentration
+
+The top 10 sellers generated approximately **13.15% of total product revenue**, indicating that revenue was distributed across a relatively broad seller base.
+
+---
+
+## 📚 Project Documentation
+
+Detailed business findings and analysis are available in:
+
+- [Business Insights](docs/business_insights.md)
+- [Data Validation SQL](sql/01_data_validation.sql)
+- [Business Analysis SQL](sql/02_business_analysis.sql)
+
+---
+
+## 📁 Project Structure
 
 ```text
 olist-ecommerce-data-analysis/
@@ -184,8 +253,7 @@ olist-ecommerce-data-analysis/
 │   └── olist-ecommerce-dashboard.png
 │
 ├── docs/
-│
-├── notebooks/
+│   └── business_insights.md
 │
 ├── sql/
 │   ├── 01_data_validation.sql
@@ -219,4 +287,4 @@ This project demonstrates an end-to-end Data Analyst workflow:
 
 **Sai Prakash**
 
-Aspiring Data Analyst | SQL | Python | Excel | Databricks | Data Visualization
+Aspiring Data Analyst | SQL | Excel | Databricks | Data Visualization
